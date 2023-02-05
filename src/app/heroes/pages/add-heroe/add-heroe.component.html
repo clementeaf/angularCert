@@ -1,0 +1,85 @@
+<h1>New Heroe <small>{{heroe.superhero}}</small></h1>
+
+<div class="flex items-start justify-start gap-4 p-4">
+    <div class="flex flex-col gap-4 p-4">
+        <div class="flex gap-4">
+            <div class="flex">
+                <mat-form-field class="flex w-[200px]">
+                    <mat-label>Super Heroe</mat-label>
+                    <input matInput
+                           type="text"
+                           [(ngModel)]='heroe.superhero'
+                           required>
+                </mat-form-field>
+            </div>
+            
+            <div>        
+                <mat-form-field class="flex w-[200px]">
+                <mat-label>Alter Ego</mat-label>
+                <input matInput
+                       type="text"
+                       [(ngModel)]='heroe.alter_ego'
+                       required>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div>        
+            <mat-form-field class="flex w-[415px]">
+            <mat-label>First Appearence</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]='heroe.first_appearance'
+                   required>
+            </mat-form-field>
+        </div>
+        
+        <div>        
+            <mat-form-field class="flex w-[415px]">
+            <mat-label>Characters</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]='heroe.characters'
+                   required>
+            </mat-form-field>
+        </div>
+        
+        <div>        
+            <mat-form-field class="flex w-[415px]">
+            <mat-label>Created by</mat-label>
+            <mat-select [(ngModel)]='heroe.publisher'>
+                <mat-option *ngFor="let publisher of publishers"
+                            [value]="publisher.id">
+                            {{publisher.desc}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+    
+        <div>        
+            <mat-form-field class="flex w-[415px]">
+            <mat-label>Foto Url</mat-label>
+            <input matInput
+                   type="url"
+                   [(ngModel)]='heroe.alt_img'
+                   required>
+            </mat-form-field>
+            <br>
+
+            <div class="flex gap-4">
+                <button mat-raised-button color="primary" (click)="guardar()" class="w-full">
+                    <mat-icon>edit</mat-icon>
+                    Save
+                </button>
+                <button mat-raised-button class="w-full" *ngIf="heroe.id" (click)="borrarHeroe()">
+                    <mat-icon>remove</mat-icon>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <img [src]="heroe | images" />
+    </div>
+</div>
+

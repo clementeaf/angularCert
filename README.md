@@ -1,0 +1,1 @@
+Previo a la inicialización de la app es necesario inicializar el db.json mediante el comando npx json-server --watch db.json
